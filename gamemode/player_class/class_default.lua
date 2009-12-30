@@ -18,7 +18,7 @@ end
 
 function CLASS:OnSpawn( pl )
 	if pl.WinkMurder then
-		pl:SetRunSpeed(500)
+		pl:SetRunSpeed(600)
 		pl:SetWalkSpeed(310)
 		pl:SetFOV(110,0.6)
 	else
