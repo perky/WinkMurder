@@ -52,8 +52,11 @@ function SWEP:PrimaryAttack()
 		if self.Owner:GetNetworkedInt("WinkMurderer") == 1 then
 			self:ShootBullet(25,1,0)
 		else
-			self:ShootBullet(200,1,0)
-			if SERVER and victim:GetNetworkedInt("WinkMurderer") == 0 then self.Owner:KillSilent() end
+			if SERVER and victim:GetNetworkedInt("WinkMurderer") == 0 then 
+				self.Owner:Kill()
+			else
+				self:ShootBullet(200,1,0)
+			end
 		end
 	else
 		self:ShootBullet(1,1,0)
