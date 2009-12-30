@@ -5,4 +5,4 @@ include('shared.lua')
  SWEP.SlotPos		= 1
  SWEP.DrawAmmo		= false
  SWEP.DrawCrosshair	= true
- SWEP.DrawWeaponInfoBox = false
+ SWEP.DrawWeaponInfoBox = true

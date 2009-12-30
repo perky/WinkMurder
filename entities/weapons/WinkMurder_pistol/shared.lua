@@ -4,7 +4,7 @@
 SWEP.Author             = "ljdp"
 SWEP.Contact            = ""
 SWEP.Purpose            = ""
-SWEP.Instructions       = ""
+SWEP.Instructions       = "-25 health of YOUR health on every shot! Be careful."
 //----------------------------------------------
  
 SWEP.Spawnable = true
@@ -50,19 +50,50 @@ function SWEP:PrimaryAttack()
 	
 	if victim then
 		if self.Owner:GetNetworkedInt("WinkMurderer") == 1 then
-			self:ShootBullet(25,1,0)
+			--IF THE MURDER SHOOTS
+			self:ShootBullet(100,1,0)
 		else
-			if SERVER and victim:GetNetworkedInt("WinkMurderer") == 0 then 
-				self.Owner:Kill()
+			if victim:GetNetworkedInt("WinkMurderer") == 1 then
+				--IF AN INNOCENT SHOOTS THE MURDERER
+				self:ShootBullet(30,1,0)
 			else
-				self:ShootBullet(200,1,0)
+				--IF AN INNOCENT SHOOTS AN INNOCENT
+				self:ShootBullet(5,1,0)
 			end
 		end
 	else
 		self:ShootBullet(1,1,0)
 	end
 	
+	--IF AN INNOCENT SHOOTS
+	if SERVER and self.Owner:GetNetworkedInt("WinkMurderer") == 0 then
+		local hp = self.Owner:Health()
+		hp = hp - 25
+		self.Owner:SetHealth(hp)
+		if self.Owner:Health() <= 0 then
+			self.Owner:Kill()
+		end
+	end
+	
 	self.Weapon:EmitSound(ShootSound, 10, 100)
+end
+
+function SWEP:ShootBullet( damage, num_bullets, aimcone )
+ 
+	local bullet = {}
+	bullet.Num 		= num_bullets
+	bullet.Src 		= self.Owner:GetShootPos()	// Source
+	bullet.Dir 		= self.Owner:GetAimVector()	// Dir of bullet
+	bullet.Spread 	= Vector( aimcone, aimcone, 0 )		// Aim Cone
+	bullet.Tracer	= 1	// Show a tracer on every x bullets 
+	bullet.Force	= 1	// Amount of force to give to phys objects
+	bullet.Damage	= damage
+	bullet.AmmoType = "Pistol"
+ 
+	self.Owner:FireBullets( bullet )
+ 
+	self:ShootEffects()
+ 
 end
  
  
