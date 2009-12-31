@@ -2,7 +2,7 @@ GM.Name 	= "WinkMurder"
 GM.Author 	= "Ljdp"
 GM.Email 	= ""
 GM.Website 	= ""
-GM.Help		= "1 player is a Wink murderer, it will try to kill you all... in secret! If you catch it in the act shoot it down. Careful though because if you kill an innocent player your both dead meat!"
+GM.Help		= "1 player is a Wink murderer, it will try to kill you all... in secret!\n If you catch it in the act shoot it down.\n Careful though because if you kill an innocent player your both dead meat!"
  
 GM.Data = {}
 GM.Sounds = {}
@@ -19,8 +19,8 @@ GM.TeamBased = false					// Team based game or a Free For All game?
 GM.AllowAutoTeam = true
 GM.AllowSpectating = true
 GM.SelectClass = true
-GM.GameLength = 18
-GM.RoundLimit = 24					// Maximum amount of rounds to be played in round based games
+GM.GameLength = 20
+GM.RoundLimit = 10					// Maximum amount of rounds to be played in round based games
 GM.VotingDelay = 5					// Delay between end of game, and vote. if you want to display any extra screens before the vote pops up
  
 GM.NoPlayerSuicide = true
@@ -40,7 +40,7 @@ GM.RealisticFallDamage = false
 GM.NoAutomaticSpawning = true		// Players don't spawn automatically when they die, some other system spawns them
 GM.RoundBased = true				// Round based, like CS
 GM.RoundLength = 60 * 4				// Round length, in seconds
-GM.RoundPreStartTime = 3			// Preperation time before a round starts
+GM.RoundPreStartTime = 1			// Preperation time before a round starts
 GM.RoundPostLength = 5				// Seconds to show the 'x team won!' screen at the end of a round
  
 GM.EnableFreezeCam = false			// TF2 Style Freezecam
