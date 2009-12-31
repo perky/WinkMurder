@@ -25,8 +25,6 @@ function GM:OnPreRoundStart( round_number )
 	
 	for k,ply in pairs(PlayerList) do
 		ply.WinkMurder = false
-		ply:SetTeam( TEAM_MAIN )
-		ply:Spawn()
 		ply:SetNetworkedInt("WinkMurderer",0)
 	end
 	WinkMurderPlayer.WinkMurder = true
@@ -100,7 +98,7 @@ end
 -----------------------
 function GM:PlayerInitialSpawn( player )
 	self.BaseClass:PlayerInitialSpawn( player )
-	player:SetTeam( TEAM_MAIN )
+
 	player:SetNetworkedInt("WinkMurderer",0)
 	player:SetNetworkedInt("Wins",0)
 end

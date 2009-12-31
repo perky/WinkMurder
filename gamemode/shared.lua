@@ -55,10 +55,9 @@ GM.HudSkin = "SimpleSkin"
 GM.ValidSpectatorModes = { OBS_MODE_CHASE, OBS_MODE_IN_EYE, OBS_MODE_ROAMING }
 GM.ValidSpectatorEntities = { "player" }	// Entities we can spectate
 
-TEAM_MAIN = 1
 function GM:CreateTeams()
-	team.SetUp( TEAM_MAIN, "Default Team", Color( 90, 90, 255, 255 ), true )
-	team.SetSpawnPoint( TEAM_MAIN,{"info_player_start", "info_player_terrorist", "info_player_rebel", "info_player_deathmatch"} )
-	team.SetClass( TEAM_MAIN, "Default" )
+	team.SetUp( TEAM_UNASSIGNED, "Default Team", Color( 90, 90, 255, 255 ), true )
+	team.SetSpawnPoint( TEAM_UNASSIGNED,{"info_player_start", "info_player_terrorist", "info_player_rebel", "info_player_deathmatch"} )
+	team.SetClass( TEAM_UNASSIGNED, "Default" )
 end
  
