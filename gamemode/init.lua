@@ -12,6 +12,14 @@ local WinkMurderPlayer
 -- Round functions. --
 ----------------------
 function GM:CanStartRound( round_number )
+	if #player.GetAll() >= 3 then
+		return true
+	else
+		return false
+	end
+end
+
+function GM:OnPreRoundStart( round_number )
 	local PlayerList = player.GetAll()
 	WinkMurderPlayer = table.Random( PlayerList )
 	
@@ -29,7 +37,7 @@ function GM:CanStartRound( round_number )
 	umsg.Start("winkmurder_preround", rp)
 	umsg.End()
 	
-	return true
+	self.BaseClass:OnPreRoundStart( round_number )
 end
 
 function GM:OnRoundStart( round_number )
